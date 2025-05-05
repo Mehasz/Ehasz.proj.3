@@ -2,46 +2,120 @@
 <html lang="en">
   <head>
     <script src="script.js" type="module"></script>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #fefbea;
+        color: #333;
+        padding: 2rem;
+        max-width: 800px;
+        margin: auto;
+      }
+
+      h1 {
+        text-align: center;
+        color: #222;
+      }
+
+      button {
+        background-color: #c0c0c0;
+        color: black;
+        border: none;
+        padding: 10px 16px;
+        margin: 6px 4px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out;
+      }
+
+      button:hover {
+        background-color: #9e1b34;
+      }
+
+      .control-group {
+        margin-bottom: 20px;
+        background: white;
+        border-radius: 8px;
+        padding: 16px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+
+      .slider-label {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+        font-weight: bold;
+      }
+
+      input[type="range"] {
+        width: 100%;
+
+        margin: 6px 0;
+      }
+
+      label {
+        font-size: 0.9rem;
+        color: #666;
+      }
+
+      .slider-container {
+        margin-bottom: 16px;
+      }
+
+      #outputLabel,
+      #carFreqLabel,
+      #modFreqLabel,
+      #modDepthLabel {
+        display: block;
+        margin-top: 4px;
+        font-size: 0.9rem;
+        text-align: right;
+        color: #201;
+      }
+      .button-group {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      .button-group button {
+        flex: 1;
+        min-width: 120px;
+      }
+    </style>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>FM synthesis</title>
   </head>
-  <body>
+  <div class="button-group">
     <button id="startCar">Start Carrier Oscillator</button>
-    <div>
-      <button id="stopCar">Stop Carrier Oscillator</button>
+    <button id="startMod">Start Modulation Oscillator</button>
+    <button id="stopCar">Stop Carrier Oscillator</button>
+    <button id="stopMod">Stop Modulation Oscillator</button>
+  </div>
+  <p>Master Gain</p>
+  <input
+    id="masterFader"
+    type="range"
+    min="-60.0"
+    max="6.0"
+    step="0.1"
+    value="-12.0"
+  />
+  <label for="masterFader" id="outputLabel">-12.0 dBFS</label>
 
-      <button id="startMod">Start Modulation Oscillator</button>
-      <div>
-        <button id="stopMod">Stop Modulation Oscillator</button>
-        <p>Master Gain</p>
-        <input
-          id="masterFader"
-          type="range"
-          min="-60.0"
-          max="6.0"
-          step="0.1"
-          value="-12.0"
-        />
-        <label for="masterFader" id="outputLabel">-12.0 dBFS</label>
-      </div>
-      <input
-        id="carrierFreq"
-        type="range"
-        min="100"
-        max="1000"
-        step="1"
-        value="440"
-      />
-      <label id="CarFreqLabel">440 Hz</label>
-    </div>
-    <div>
-      <input id="modFreq" type="range" min="1" max="500" step="1" value="100" />
+  <p>Modulation Frequency</p>
+  <input id="carFreq" type="range" min="50" max="2000" step="1" value="440" />
+  <label id="carFreqLabel">440 Hz</label>
 
-    <label id="ModFreqLabel">100 Hz</label>
-    </div>
-      <input id="modDepth" type="range" min="0" max="1000" step="1" value="100" />
-      <label id="ModFreqLabel">100</label>
-    </div>
-  </body>
+  <div>
+    <p>Modulation Frequency</p>
+    <input id="modFreq" type="range" min="1" max="500" step="1" value="100" />
+
+    <label id="modFreqLabel">100 Hz</label>
+  </div>
+  <p>Modulation Depth</p>
+  <input id="modDepth" type="range" min="0" max="1000" step="1" value="100" />
+  <label id="modDepthLabel">100</label>
 </html>

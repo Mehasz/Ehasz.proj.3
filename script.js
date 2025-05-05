@@ -98,8 +98,8 @@ let stopButtonM = document.getElementById("stopMod");
 let masterGainFader = document.getElementById("masterFader");
 let faderLabel = document.getElementById("outputLabel");
 
-let carFreqFader = document.getElementById("carrierFreq");
-let carFreqLabel = document.getElementById("carrierFreqLabel");
+let carFreqFader = document.getElementById("carFreq");
+let carFreqLabel = document.getElementById("carFreqLabel");
 let modFreqFader = document.getElementById("modFreq");
 let modFreqLabel = document.getElementById("modFreqLabel");
 let modDepthFader = document.getElementById("modDepth");
